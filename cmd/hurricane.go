@@ -26,18 +26,21 @@ func main() {
 
 	r := mux.NewRouter()
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Header.Set("Access-Control-Allow-Origin", "*")
 		fmt.Fprintf(w, cache.Get("/", func() string {
 			return table.View("Approved")
 		}))
 	})
 	r.HandleFunc("/{recordId}", func(w http.ResponseWriter, r *http.Request) {
 		vars := mux.Vars(r)
+		w.Header.Set("Access-Control-Allow-Origin", "*")
 		fmt.Fprintf(w, cache.Get(r.RequestURI, func() string {
 			return table.Get(vars["recordId"])
 		}))
 	})
 	r.HandleFunc("/view/{viewName}", func(w http.ResponseWriter, r *http.Request) {
 		vars := mux.Vars(r)
+		w.Header.Set("Access-Control-Allow-Origin", "*")
 		fmt.Fprintf(w, cache.Get(r.RequestURI, func() string {
 			return table.View(vars["viewName"])
 		}))

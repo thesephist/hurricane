@@ -55,7 +55,6 @@ func (tbl *Table) List() string {
 	}
 
 	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", tbl.Base.ApiKey))
-	req.Header.Set("Access-Control-Allow-Origin", "*")
 	resp, err := tbl.Base.Client.Do(req)
 	if err != nil {
 		log.Println(err)
@@ -95,7 +94,6 @@ func (tbl *Table) View(viewName string) string {
 	}
 
 	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", tbl.Base.ApiKey))
-	req.Header.Set("Access-Control-Allow-Origin", "*")
 	resp, err := tbl.Base.Client.Do(req)
 	if err != nil {
 		log.Println(err)
@@ -135,7 +133,6 @@ func (tbl *Table) Get(recordId string) string {
 	}
 
 	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", tbl.Base.ApiKey))
-	req.Header.Set("Access-Control-Allow-Origin", "*")
 	resp, err := tbl.Base.Client.Do(req)
 	if err != nil {
 		log.Println(err)
