@@ -13,7 +13,7 @@ go build cmd/hurricane.go -o ./hurricane
 Run Hurricane with `./hurricane`. Hurricane takes no command line arguments, but reads a couple of configuration strings from the environment:
 
 ```
-HURRICANE_BASE      Airtable Base ID
+HURRICANE_BASE_ID   Airtable Base ID
 HURRICANE_API_KEY   Airtable API KEY
 
 (optional)
