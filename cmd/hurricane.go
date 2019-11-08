@@ -25,6 +25,10 @@ func main() {
 	cache.Purge()
 
 	r := mux.NewRouter()
+	r.HandleFunc("/purge", func(w http.ResponseWriter, r *http.Request) {
+		cache.Purge()
+		fmt.Fprintf(w, "Cache purged.")
+	})
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		fmt.Fprintf(w, cache.Get("/", func() string {
