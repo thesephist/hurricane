@@ -17,7 +17,7 @@ func main() {
 	}
 
 	table := airtable.Table{
-		Name: "Hackathon Applications",
+		Name: "applications",
 		Base: base,
 	}
 
